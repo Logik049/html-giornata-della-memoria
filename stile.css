@@ -1,0 +1,330 @@
+
+body{
+  margin: 0;
+background-color: grey;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.header{
+  text-align: center;
+  padding: 18px 16px 8px;
+}
+
+.header h1{
+  margin: 0;
+  font-size: 38px;
+}
+
+.container{
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 16px 16px 40px;
+}
+
+/* Blocco con immagine + testo affiancati */
+.blocco_introduzione{
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  background-color: rgb(222, 214, 214);
+  font-size: 20px;
+  
+
+  
+}
+
+.copertina{
+  height: 500px;
+  width: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.introduzione{
+  max-width: 650px;
+}
+
+.introduzione p{
+  margin-top: 0;
+}
+
+/* Link nel testo */
+a{
+  color: black;
+  font-weight: bold;
+}
+
+/* --- 4 riquadri 2x2 --- */
+.riquadri{
+  margin-top: 20px;
+}
+
+.riquadri h2{
+  margin: 18px 0 12px;
+  text-align: center;
+}
+
+.riquadri-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colonne */
+  gap: 14px;
+}
+
+.riquadro{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: rgb(222, 214, 214);
+  border: 2px solid black;
+  border-radius: 14px;
+  padding: 14px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.riquadro:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+}
+
+.riquadro h3{
+  margin: 0 0 6px 0;
+}
+
+.riquadro p{
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Mobile */
+@media (max-width: 899px){
+  .blocco_introduzione{
+    flex-direction: column;
+  }
+
+  .copertina{
+    height: auto;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .riquadri-grid{
+    grid-template-columns: 1fr; /* 1 colonna su mobile */
+  }
+}
+
+/* Footer/info */
+.info{
+  color: white;
+  text-align: center;
+}
+
+#a1{ width: 70%; }
+#a2{ width: 80%; }
+
+#separe{
+  width: 60%;
+}
+
+.info
+{
+  color:black;
+  margin-top: 100px;
+  background-color: rgb(94, 94, 209);
+  padding: 10px;
+  width: 100%;
+  
+
+}
+
+#a1
+{
+  width: 60%;
+}
+#a2
+{
+  width: 70%;
+}
+#a3
+{
+  width: 80%;
+}
+#a4
+{
+  width: 90%;
+}
+
+
+/* =========================
+   STORIA DEL LIBRO (coerente col tuo stile)
+   ========================= */
+
+.blocco_testo{
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 16px;
+  background-color: white;
+  margin-top: 18px;
+}
+
+/* Titoli dentro il blocco */
+.blocco_testo h2{
+  margin: 10px 0 8px;
+  font-size: 24px;
+}
+
+/* Testo più “arioso” (senza cambiare tema) */
+.blocco_testo p{
+  margin: 10px 0 0;
+}
+
+/* Evidenziazione della frase in <b> ... </b> */
+.blocco_testo b{
+  background: #fff2b3;      /* giallino leggero */
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+/* Link: restano neri come nel tuo stile, ma più “puliti” */
+.blocco_testo a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.blocco_testo a:hover{
+  opacity: 0.75;
+}
+
+/* Citazione: coerente con i riquadri (niente variabili) */
+.citazione{
+  margin: 14px 0;
+  padding: 12px 14px;
+  border: 2px solid black;
+  border-left: 6px solid rgb(94, 94, 209); /* richiama il blu del footer */
+  background-color: #f2f3ff;
+  border-radius: 12px;
+  font-style: italic;
+}
+
+/* Mobile */
+@media (max-width: 520px){
+  .blocco_testo{
+    padding: 14px;
+  }
+}
+
+#okk{
+  width: 800px;
+  margin: 14px auto;
+  border: 2px solid black;
+  border-radius: 12px;
+  display: block;
+}
+
+/* NEBBIA */
+
+/* =========================
+   NEBBIA / FOG OVERLAY
+   ========================= */
+
+body{
+  position: relative;  /* crea contesto per z-index dei contenuti */
+  min-height: 100vh;
+}
+
+/* contenuti sopra la nebbia */
+.header, .container, .info{
+  position: relative;
+  z-index: 2;
+}
+
+/* overlay nebbia */
+.fogwrapper{
+  pointer-events: none;     /* non blocca click/hover */
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  filter: blur(1px) grayscale(0.2) saturate(1.1) sepia(0.15);
+  opacity: 5;            /* intensità generale (abbassa per più leggera) */
+}
+
+#foglayer_01, #foglayer_02, #foglayer_03{
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  height: 100%;
+  will-change: transform, opacity;
+}
+
+#foglayer_01 .image01, #foglayer_01 .image02,
+#foglayer_02 .image01, #foglayer_02 .image02,
+#foglayer_03 .image01, #foglayer_03 .image02{
+  float: left;
+  width: 50%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* immagini fog */
+#foglayer_01 .image01, #foglayer_01 .image02{
+  background-image: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png");
+}
+#foglayer_02 .image01, #foglayer_02 .image02,
+#foglayer_03 .image01, #foglayer_03 .image02{
+  background-image: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog2.png");
+}
+
+/* animazioni: uso transform (più fluido di left) */
+#foglayer_01{
+  animation: foglayer_01_opacity 12s linear infinite, foglayer_move 18s linear infinite;
+}
+#foglayer_02{
+  animation: foglayer_02_opacity 18s linear infinite, foglayer_move 14s linear infinite;
+}
+#foglayer_03{
+  animation: foglayer_03_opacity 22s linear infinite, foglayer_move 12s linear infinite;
+}
+
+@keyframes foglayer_move{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* opacità leggere (effetto “cimitero”) */
+@keyframes foglayer_01_opacity{
+  0%   { opacity: 0.08; }
+  30%  { opacity: 0.18; }
+  60%  { opacity: 0.12; }
+  100% { opacity: 0.08; }
+}
+@keyframes foglayer_02_opacity{
+  0%   { opacity: 0.12; }
+  35%  { opacity: 0.06; }
+  70%  { opacity: 0.14; }
+  100% { opacity: 0.12; }
+}
+@keyframes foglayer_03_opacity{
+  0%   { opacity: 0.10; }
+  40%  { opacity: 0.04; }
+  75%  { opacity: 0.12; }
+  100% { opacity: 0.10; }
+}
+
+/* mobile: evita strani “tagli” */
+@media (max-width: 767px){
+  .fogwrapper{ filter: blur(0.8px); opacity: 0.65; }
+  #foglayer_01 .image01, #foglayer_01 .image02,
+  #foglayer_02 .image01, #foglayer_02 .image02,
+  #foglayer_03 .image01, #foglayer_03 .image02{
+    width: 100%;
+  }
+}
